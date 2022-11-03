@@ -1,4 +1,6 @@
 let id = 1;
+let i = 1;
+let j = 1;
 
 const DESCRIPTION = [
   'Закат',
@@ -9,8 +11,10 @@ const DESCRIPTION = [
   'Красота',
 ];
 
-let url = '';
-
+const LIKES = {
+  MIN: 15,
+  MAX: 250,
+};
 
 const MESSAGE = [
   'Всё отлично!',
@@ -26,13 +30,19 @@ const NAME = [
   'Петя',
   'Вася',
   'Света',
+  'Катя',
+  'Игорь',
 ];
+
+const NAMBERS_PHOTOS = 25;
+
+const NAMBERS_COMMENTS = 3;
 
 function getRandomIntInclusive(a, b) {
   if (a < 0 || b < 0) {
     return NaN;
   }
-  if ( a < b) {
+  if ( a > b) {
     [a, b] = [b, a];
   }
   a = Math.ceil(a);
@@ -44,10 +54,29 @@ function getStringLength (string, b) {
   return string.length <= b;
 }
 
+const getRandomArrayElement = (elements) => elements[getRandomIntInclusive(0, elements.length - 1)];
 
+const createComments = function () {
+  return {
+    id: j++,
+    avatar: `img/avatar-${getRandomIntInclusive(1,6)}.svg`,
+    message: Array.from({length: getRandomIntInclusive(1,2)},() => getRandomArrayElement(MESSAGE)),
+    name: getRandomArrayElement(NAME),
+  };
+};
 
+const createPhotoDescription = function () {
+  return {
+    id: id++,
+    URL: `photos/${i++}.jpg`,
+    description: getRandomArrayElement(DESCRIPTION),
+    likes: getRandomIntInclusive(LIKES.MIN, LIKES.MAX),
+    comments: Array.from({length: NAMBERS_COMMENTS}, createComments),
+  };
+};
 
+const photoDescription = Array.from({length: NAMBERS_PHOTOS}, createPhotoDescription);
 
-getRandomIntInclusive(1, 5);
+console.log(photoDescription);
+
 getStringLength ('ab', 8);
-
