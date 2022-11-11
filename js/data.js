@@ -61,6 +61,6 @@ const createPhotoDescription = function () {
   };
 };
 
-const createphotosDescription = () => Array.from({length: NAMBERS_PHOTOS}, createPhotoDescription);
+const createPhotosDescription = () => Array.from({length: NAMBERS_PHOTOS}, createPhotoDescription);
 
-export {createphotosDescription};
+export {createPhotosDescription};

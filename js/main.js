@@ -1,5 +1,5 @@
-import {createphotosDescription} from './data.js';
+import {photosContainer} from './thumbnails.js';
 
-console.log(createphotosDescription());
+console.log(photosContainer);
 
 
