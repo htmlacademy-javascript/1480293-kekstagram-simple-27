@@ -22,6 +22,8 @@ similarPhotosDescription.forEach(({likes, URL, comments}) => {
   similarListFragment.appendChild(photoElement);
 });
 
-photosContainer.appendChild(similarListFragment);
-export {photosContainer};
+const createphotosContainer = function() {
+  photosContainer.appendChild(similarListFragment);
+};
+export {createphotosContainer};
 
