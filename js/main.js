@@ -1,5 +1,5 @@
 import {createphotosDescription} from './data.js';
 
-console.log(createphotosDescription());
+//console.log(createphotosDescription());
 
 
